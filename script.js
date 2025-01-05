@@ -40,6 +40,7 @@ function checkSecurity(platform) {
         document.getElementById('result-message').textContent = "الحساب آمن وغير مخترق.";
         document.getElementById('result').classList.remove('hidden');
     }, function(error) {
+        console.error('Error sending email:', error); // إضافة سجل للخطأ
         Swal.fire('خطأ', 'حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.', 'error');
         document.getElementById('result-message').textContent = "حدث خطأ أثناء الفحص. يرجى المحاولة مرة أخرى.";
         document.getElementById('result').classList.remove('hidden');
