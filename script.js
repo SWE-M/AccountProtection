@@ -5,9 +5,26 @@
 
 // Toggle Forms
 function toggleForm(platform) {
-    document.querySelectorAll('.form').forEach(form => form.classList.add('hidden'));
-    document.getElementById(`${platform}-form`).classles.remove('hidden');
-    document.getElementById('result').classList.add('hidden');
+    // إخفاء جميع النماذج
+    document.querySelectorAll('.form').forEach(form => {
+        if (form.classList.contains('hidden') === false) {
+            form.classList.add('hidden');
+        }
+    });
+
+    // إظهار النموذج المحدد
+    const formToShow = document.getElementById(`${platform}-form`);
+    if (formToShow) {
+        formToShow.classList.remove('hidden');
+    } else {
+        console.error(`Form with ID ${platform}-form not found!`);
+    }
+
+    // إخفاء نتيجة الفحص
+    const resultDiv = document.getElementById('result');
+    if (resultDiv) {
+        resultDiv.classList.add('hidden');
+    }
 }
 
 // Send Data and Show Message
